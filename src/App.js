@@ -8,8 +8,8 @@ import React, { //비구조화 할당이 아닌 React는 이름을 바꿔서 imp
 } from "react";
 import DiaryEditor from "./DiaryEditor";
 import DiaryList from "./DiaryList";
-import OptimizeTest from "./OptimizeTest";
-import Lifecycle from "./Lifecycle";
+// import OptimizeTest from "./OptimizeTest";
+// import Lifecycle from "./Lifecycle";
 
 //Dispatch를 호출하면 Reducer가 실행되고, 그 Reducer가 Return하는
 //값이 이 데이터의 값이 된다.
