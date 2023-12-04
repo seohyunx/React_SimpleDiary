@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const DiaryItem = ({
   author,
@@ -9,6 +9,10 @@ const DiaryItem = ({
   onRemove,
   onEdit,
 }) => {
+  useEffect(() => {
+    console.log(`${id}번 째 아이템 렌더!`);
+  });
+
   //수정하기 상태 판별
   const [isEdit, setIsEdit] = useState(false);
   //toggleIsEdit 함수 : 호출되는 순간 원래 isEdit이 가지고 있던 값을 반전시킴
@@ -83,4 +87,4 @@ const DiaryItem = ({
   );
 };
 
-export default DiaryItem;
+export default React.memo(DiaryItem);
