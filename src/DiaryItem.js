@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { DiaryDispatchContext } from "./App";
 
 const DiaryItem = ({
   author,
@@ -6,12 +7,10 @@ const DiaryItem = ({
   created_date,
   emotion,
   id,
-  onRemove,
-  onEdit,
+  // onRemove,
+  // onEdit,
 }) => {
-  useEffect(() => {
-    console.log(`${id}번 째 아이템 렌더!`);
-  });
+  const { onRemove, onEdit } = useContext(DiaryDispatchContext);
 
   //수정하기 상태 판별
   const [isEdit, setIsEdit] = useState(false);
@@ -46,6 +45,7 @@ const DiaryItem = ({
       onEdit(id, localContent);
       toggleIsEdit();
     }
+    console.log("일기 수정 완료 : ", localContent);
   };
 
   return (
@@ -68,7 +68,7 @@ const DiaryItem = ({
             />
           </>
         ) : (
-          <>{content}</>
+          <>{localContent}</>
         )}
       </div>
 
