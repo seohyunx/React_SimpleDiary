@@ -31,8 +31,8 @@ const reducer = (state, action) => {
       };
       return [newItem, ...state];
     }
-    case "REMOEVE": {
-      return state.filter((it) => it.id !== action.targerId);
+    case "REMOVE": {
+      return state.filter((it) => it.id !== action.targetId);
     }
     case "EDIT": {
       return state.map((it) =>
@@ -126,7 +126,6 @@ function App() {
     // );
   }, []);
 
-  //
   const memoizedDispatches = useMemo(() => {
     return { onCreate, onRemove, onEdit };
   }, []); //절대 재생성되는 일이 없게 Depth를 빈배열로 전달.
@@ -147,12 +146,12 @@ function App() {
         <div className="App">
           {/* <Lifecycle /> */}
           {/* <OptimizeTest /> */}
-          <DiaryEditor onCreate={onCreate} />
+          <DiaryEditor />
           <div>전체 일기 : {data.length}</div>
           <div>기분 좋은 일기 개수: {goodCount}</div>
           <div>기분 나쁜 일기 개수 : {badCount}</div>
           <div>기분 좋은 일기 비율 : {goodRatio}</div>
-          <DiaryList onRemove={onRemove} onEdit={onEdit} />
+          <DiaryList />
         </div>
       </DiaryDispatchContext.Provider>
     </DiaryStateContext.Provider>
